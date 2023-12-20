@@ -660,6 +660,191 @@ app.get("/api/posiciones", (req, res) => {
 
   res.json(posiciones);
 });
+
+app.get("/api/equipos", (req, res) => {
+  const equipos = [
+    {
+      "id": 1,
+      "nombre": "Gigantes del Cibao",
+      "abreviatura": "GIG",
+      "ciudad": "San Francisco de Macorís",
+      "estadio": "Estadio Julián Javier",
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/d8b8a0a312b685f33e63d453b0d2db83.png"
+    },
+    {
+      "id": 2,
+      "nombre": "Estrellas Orientales",
+      "abreviatura": "EO",
+      "ciudad": "San Pedro de Macorís",
+      "estadio": "Estadio Tetelo Vargas",
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/bc83c5669a23ea41ef5f755bfbd50ebd.png"
+    },
+    {
+      "id": 3,
+      "nombre": "Leones del Escogido",
+      "abreviatura": "LE",
+      "ciudad": "Santo Domingo",
+      "estadio": "Estadio Quisqueya Juan Marichal",
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/3657a463e594aec7d83697355ad2e541.png"
+    },
+    {
+      "id": 4,
+      "nombre": "Tigres del Licey",
+      "abreviatura": "TL",
+      "ciudad": "Santo Domingo",
+      "estadio": "Estadio Quisqueya Juan Marichal",
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/9888ecc384811ab5781b0310ae9401a9.png"
+    },
+    {
+      "id": 5,
+      "nombre": "Aguilas Cibaeñas",
+      "abreviatura": "AC",
+      "ciudad": "Santiago",
+      "estadio": "Estadio Cibao",
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/f0fb0b8bc2a38afca24fa01fd5f74635.png"
+    },
+    {
+      "id": 6,
+      "nombre": "Toros del Este",
+      "abreviatura": "TE",
+      "ciudad": "La Romana",
+      "estadio": "Estadio Francisco Micheli",
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/0d180431331e93a791f23a77d4b94122.png"
+    }
+  ];
+
+  res.json(equipos);
+});
+
+
+
+app.get('/api/equipo/:id', (req, res) => {
+  const parametro = req.params.id;
+
+  const equipos = [
+    {
+      "id": 1,
+      "nombre": "Estadio Julián Javier",
+      "equipo_local": "Gigantes del Cibao",
+      "conocido_como": "El Establo de la Muerte",
+      "localidad": "San Francisco de Macorís, RD",
+      "inauguracion": "1975",
+      "remodelacion": "210-2016",
+      "capacidad": "12,000 espectadores sentados",
+      "dimensiones": {
+        "left_field": "330 pies (101m)",
+        "left_center_field": "355 pies (108 m)",
+        "center_field": "385 pies (117 m)",
+        "right_center_field": "350 pies (107 m)",
+        "right_field": "330 pies (101 m)"
+      },
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/df9f8432190189645a0a546ae8c9c1c5.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Estadio Tetelo Vargas",
+      "equipo_local": "Estrellas Orientales",
+      "conocido_como": "El coloso del Ensanche La Fe",
+      "localidad": "Av. Circunvalación, San Pedro de Macorís",
+      "arquitecto": "Bienvenido Martínez Brea",
+      "inauguracion": "25 de noviembre de 1959",
+      "remodelacion": "2007-2010",
+      "capacidad": "5,350 espectadores sentados",
+      "dimensiones": {
+        "left_field": "335 pies (102 m)",
+        "left_center_field": "365 pies (111 m)",
+        "center_field": "385 pies (117 m)",
+        "right_center_field": "365 pies (111 m)",
+        "right_field": "335 pies (102 m)"
+      },
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/e9e5d48aac980d7568981a7e5cb41e7c.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Estadio Quisqueya",
+      "equipos_local": "Leones del Escogido",
+      "conocido_como": "El coloso del Ensanche La Fe",
+      "localidad": "Av. Tiradentes, Ensanche La Fe, Santo Domingo",
+      "arquitecto": "Bienvenido Martínez Brea",
+      "inauguracion": "23 de Octubre de 1955",
+      "remodelacion": "2007",
+      "ampliacion": "2010",
+      "capacidad": "11,379 espectadores sentados",
+      "dimensiones": {
+        "left_field": "335 pies (102 m)",
+        "left_center_field": "383 pies (111 m)",
+        "center_field": "411 pies (117 m)",
+        "right_center_field": "383 pies (111 m)",
+        "right_field": "335 pies (102 m)"
+      },
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/21a4511df523f9442476169059418e87.jpg"
+    }, 
+    {
+      "id": 4,
+      "nombre": "Estadio Quisqueya",
+      "equipos_local": "Tigres del Licey",
+      "conocido_como": "El glorioso de la capital",
+      "localidad": "Av. Tiradentes, Ensanche La Fe, Santo Domingo",
+      "arquitecto": "Bienvenido Martínez Brea",
+      "inauguracion": "23 de Octubre de 1955",
+      "remodelacion": "2007",
+      "ampliacion": "2010",
+      "capacidad": "11,379 espectadores sentados",
+      "dimensiones": {
+        "left_field": "335 pies (102 m)",
+        "left_center_field": "383 pies (111 m)",
+        "center_field": "411 pies (117 m)",
+        "right_center_field": "383 pies (111 m)",
+        "right_field": "335 pies (102 m)"
+      },
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/21a4511df523f9442476169059418e87.jpg"
+    },    
+    {
+      "id": 5,
+      "nombre": "Estadio Cibao",
+      "equipo_local": "Águilas Cibaeñas",
+      "conocido_como": "El Valle de la Muerte",
+      "localidad": "Av. Imbert, Santiago, RD",
+      "arquitecto": "Bienvenido Martínez Brea",
+      "ing_arquitecto": "Juan B. Sánchez Correa",
+      "inauguracion": "25 de Octubre de 1958",
+      "remodelacion": "1973-74",
+      "ampliacion": "2007",
+      "capacidad": "18,077 espectadores aproximadamente",
+      "dimensiones": {
+        "left_field": "335 pies (102 m)",
+        "left_center_field": "383 pies (117 m)",
+        "center_field": "411 pies (125 m)",
+        "right_center_field": "383 pies (117 m)",
+        "right_field": "335 pies (102 m)"
+      },
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/b52eef3e540e60acc0c4218fa8a83f9b.jpg"
+    },
+    {
+      "id": 6,
+      "nombre": "Estadio Francisco A. Micheli",
+      "equipo_local": "Toro del Este",
+      "conocido_como": "El Corral",
+      "localidad": "La Romana, RD",
+      "inauguracion": "19 de noviembre de 1979",
+      "remodelacion": "2013",
+      "capacidad": "10,000 personas",
+      "dimensiones": {
+        "left_field": "330 pies",
+        "left_center_field": "370 pies",
+        "center_field": "390 pies",
+        "right_center_field": "370 pies",
+        "right_field": "330 pies"
+      },
+      "imagen": "https://s3.amazonaws.com/cdn.baseball-new.com/92fcf36b4a2319d42fc98655ac7740b4.jpg"
+    }
+  ];
+
+  let equipo = equipos.find(x => x.id == parametro);
+
+  res.json(equipo);
+});
+
 // Ruta para obtener una lista de elementos (simulada)
 app.get("/api/elementos", (req, res) => {
   const elementos = ["Elemento 1", "Elemento 2", "Elemento 3"];
