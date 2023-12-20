@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Ruta de ejemplo
 app.get("/", (req, res) => {
-  res.send("¡Hola, esta es tu API!");
+  res.send("¡Hola, API LIDOM LOCAL!");
 });
 
 app.get("/api/noticias", (req, res) => {
@@ -716,8 +716,6 @@ app.get("/api/equipos", (req, res) => {
   res.json(equipos);
 });
 
-
-
 app.get('/api/equipo/:id', (req, res) => {
   const parametro = req.params.id;
 
@@ -843,19 +841,6 @@ app.get('/api/equipo/:id', (req, res) => {
   let equipo = equipos.find(x => x.id == parametro);
 
   res.json(equipo);
-});
-
-// Ruta para obtener una lista de elementos (simulada)
-app.get("/api/elementos", (req, res) => {
-  const elementos = ["Elemento 1", "Elemento 2", "Elemento 3"];
-  res.json(elementos);
-});
-
-// Ruta para agregar un elemento
-app.post("/api/elementos", (req, res) => {
-  const nuevoElemento = req.body;
-  // Aquí podrías agregar lógica para guardar el elemento en una base de datos, por ejemplo.
-  res.json({ mensaje: "Elemento agregado con éxito", elemento: nuevoElemento });
 });
 
 // Inicia el servidor
